@@ -4,7 +4,7 @@
   "description": "projekt-heroku",
   "main": "server.js",
   "dependencies": {
-    "express.js": "^4.17.1"
+    "express": "^4.17.1"
   },
   "devDependencies": {},
   "scripts": {
