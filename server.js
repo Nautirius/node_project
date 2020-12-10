@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-const PORT = 3000;
+var PORT = process.env.PORT || 3000; // bardzo istotna linijka - port zostaje przydzielony przez Heroku
 
 var userBase = [
     { id: 100, login: 'sapico', password: 'a', age: 10, student: undefined, gender: 'male' },
