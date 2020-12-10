@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
+* {
+    font-family: monospace;
+    margin: 0;
+}
+ul {
+    background: rgb(54, 41, 167);
+    height: 60px;
+}
+ul.notLoggedIn {
+background: rgb(211, 47, 96);
+}
+li {
+    float: left;
+    list-style-type: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 14px 14px 14px 0px;
+}
+#logout {
+    float: right;
+}
+ul.adminPanel {
+    background: yellow;
+}
+a {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+ul.adminPanel li a {
+    color: black;
+}
+ul.sort {
+    background: rgb(39, 42, 43);
+}
+h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 10vw;
+    font-weight: bolder;
+    color: lightgray;
+}
+form {
+    margin: 0 auto;
+    width: 50%;
+    height: 300px;
+}
+form.sort {
+    margin: 0px 10px 60px 10px;
+    width: 50%;
+    height: 20px;
+}
+form.sort label {
+    color: white;
+    padding: 0px 10px;
+    font-size: 30px;
+}
+#labelContainer {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#inputContainer {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#containersContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 0 auto;
+}
+#submitContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+label {
+    margin-top: 25px;
+    font-size: 30px;
+}
+input, select {
+    margin-top: 25px;
+    font: inherit;
+}
+
+input[type=text], select {
+    width: 150px;
+    height: 20px;
+    font-size: 20px;
+}
+input[type=radio], input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+input[type=submit] {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+}
+table {
+    margin: 0;
+    width: 100vw;
+}
+td {
+    border: 1px solid orange;
+    color: white;
+    font-weight: bold;
+    font-size: 30;
+    padding: 10px;
+}
+table.gender {
+    margin-top: 30px;
+}
+/* table.gender tr td {
+    width: 40vw;
+} */

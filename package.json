@@ -1,0 +1,19 @@
+{
+  "name": "projekt-heroku",
+  "version": "1.0.0",
+  "description": "projekt-heroku",
+  "main": "server.js",
+  "dependencies": {
+    "express.js": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "expressjs"
+  ],
+  "author": "Marcin Knapczyk 3ib1",
+  "license": "ISC"
+}
