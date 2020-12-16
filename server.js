@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var PORT = process.env.PORT || 3000; // bardzo istotna linijka - port zostaje przydzielony przez Heroku
+var bodyParser = require("body-parser");
 
 var userBase = [
     { id: 100, login: 'sapico', password: 'a', age: 10, student: undefined, gender: 'male' },
@@ -124,21 +125,22 @@ app.get('/show', function (req, res) {
         res.send(pageString);
     }
 });
-app.get("/handleRegisterForm", function (req, res) {
+app.use(bodyParser.urlencoded({ extended: true }));
+app.post("/handleRegisterForm", function (req, res) {
     let alreadyExists = false;
     userBase.forEach(user => {
-        if (req.query.login == user.login) {
+        if (req.body.login == user.login) {
             alreadyExists = true;
         }
     });
     if (!alreadyExists) {
-        let newUser = { id: id, login: req.query.login, password: req.query.password, age: req.query.age, student: req.query.student, gender: req.query.gender };
+        let newUser = { id: id, login: req.body.login, password: req.body.password, age: req.body.age, student: req.body.student, gender: req.body.gender };
         userBase.push(newUser);
         id++;
         console.log(userBase);
-        res.send(`Witaj, ${req.query.login}. Udało ci się zarejestrować. <a href="login">Przejdź do strony logowania</a>`);
+        res.send(`Witaj, ${req.body.login}. Udało ci się zarejestrować. <a href="login">Przejdź do strony logowania</a>`);
     } else {
-        res.send(`Błąd rejestracji. Użytkownik ${req.query.login} już istnieje. <a href="register">Spróbuj ponownie z innym loginem</a>`);
+        res.send(`Błąd rejestracji. Użytkownik ${req.body.login} już istnieje. <a href="register">Spróbuj ponownie z innym loginem</a>`);
     }
 });
 app.get("/handleLoginForm", function (req, res) {
@@ -154,7 +156,6 @@ app.get("/handleLoginForm", function (req, res) {
     });
     (userLoggedIn) ? console.log("Użytkownik zalogowany") : console.log("Użytkownik nie zalogowany");
     (userLoggedIn) ? res.redirect('/admin') : res.send(`Niepoprawne dane logowania. <a href="login">Spróbuj ponownie</a>`);
-    // res.send(`Użytkownik ${req.query.login} zalogowany. <a href="admin">Przejdź do strony administratora</a>`);
 });
 
 app.use(express.static('static'));
