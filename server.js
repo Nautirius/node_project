@@ -5,12 +5,11 @@ var PORT = process.env.PORT || 3000; // bardzo istotna linijka - port zostaje pr
 var bodyParser = require("body-parser");
 
 var userBase = [
-    { id: 100, login: 'sapico', password: 'a', age: 10, student: undefined, gender: 'male' },
+    { id: 100, login: 'admin', password: 'admin', age: 10, student: undefined, gender: 'male' },
     { id: 101, login: 'marcin', password: 'knapczyk', age: 18, student: 'on', gender: 'male' },
-    { id: 102, login: 'jakubin', password: 'zaq1@WSX', age: 28, student: undefined, gender: 'male' },
     { id: 99, login: 'ala', password: 'ala', age: 12, student: 'on', gender: 'female' },
     { id: 72, login: 'tomek', password: 'tomek', age: 22, student: 'on', gender: 'male' },
-    { id: 103, login: 'ewa', password: 'ewa', age: 31, student: undefined, gender: 'female' }
+    { id: 102, login: 'ewa', password: 'ewa', age: 31, student: undefined, gender: 'female' }
 ];
 
 var id = 1;
@@ -143,13 +142,13 @@ app.post("/handleRegisterForm", function (req, res) {
         res.send(`Błąd rejestracji. Użytkownik ${req.body.login} już istnieje. <a href="register">Spróbuj ponownie z innym loginem</a>`);
     }
 });
-app.get("/handleLoginForm", function (req, res) {
+app.post("/handleLoginForm", function (req, res) {
     userExists = false;
     userLoggedIn = false;
     userBase.forEach(user => {
-        if (req.query.login == user.login) {
+        if (req.body.login == user.login) {
             userExists = true;
-            if (req.query.password == user.password) {
+            if (req.body.password == user.password) {
                 userLoggedIn = true;
             }
         }

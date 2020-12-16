@@ -87,9 +87,14 @@ input, select {
     font: inherit;
 }
 
-input[type=text], select {
+input[type=text] {
     width: 150px;
     height: 20px;
+    font-size: 20px;
+}
+select {
+    height: 25px;
+    width: 160px;
     font-size: 20px;
 }
 input[type=radio], input[type=checkbox] {
@@ -115,6 +120,3 @@ td {
 table.gender {
     margin-top: 30px;
 }
-/* table.gender tr td {
-    width: 40vw;
-} */
